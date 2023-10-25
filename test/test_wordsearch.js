@@ -20,7 +20,7 @@ describe("#wordSearch()", function() {
     assert.isFalse(result);
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the word is present when word is horizontally", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
@@ -34,5 +34,26 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+
+  it("should return true if the word is present when word is vertically", function() {
+    const result = wordSearch([
+      ['S', 'W', 'C', 'F', 'S', 'U', 'A', 'L'],
+      ['E', 'E', 'I', 'N', 'E', 'E', 'L', 'D'],
+      ['J', 'F', 'C', 'F', 'I', 'U', 'A', 'L'],
+      ['N', 'M', 'J', 'T', 'N', 'V', 'R', 'G'],
+      ['K', 'H', 'C', 'S', 'F', 'E', 'R', 'L'],
+      ['E', 'F', 'R', 'E', 'E', 'E', 'Y', 'B'],
+      ['L', 'D', 'C', 'A', 'L', 'U', 'A', 'S'],
+      ['D', 'D', 'C', 'A', 'D', 'U', 'A', 'S'],
+    ], 'SEINFELD')
+
+    assert.isTrue(result);
+  });
+
+  it("should return false if the letters are empty", function() {
+    const result = wordSearch([], 'SEINFELD')
+
+    assert.isFalse(result.length === 0);
   });
 });
